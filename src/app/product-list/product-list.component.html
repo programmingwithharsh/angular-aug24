@@ -29,7 +29,7 @@
                 <td>{{product.releaseDate}}</td>
                 <td>{{product.description | lowercase}}</td>
                 <td>{{product.price}}</td>
-                <td>{{product.starRating}} <app-star></app-star></td>
+                <td><app-star [rating]="product.starRating" [price]="product.price" (ratingClicked)="onRatingClicked($event)"></app-star></td>
             </tr>
         </tbody>
     </table>
