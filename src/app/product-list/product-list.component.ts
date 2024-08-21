@@ -5,11 +5,12 @@ import { StarComponent } from "../star/star.component";
 import { ProductDetailComponent } from "../product-detail/product-detail.component";
 import { FormsModule } from '@angular/forms';
 import { ConvertToSpacesPipe } from '../convert-to-spaces.pipe';
+import { FilterProductPipe } from '../filter-product.pipe';
 
 @Component({ // Decorator
   selector: 'app-product-list', // Component name
   standalone: true,
-  imports: [NgIf, NgFor, StarComponent, ProductDetailComponent, FormsModule, UpperCasePipe, LowerCasePipe, ConvertToSpacesPipe],
+  imports: [NgIf, NgFor, StarComponent, ProductDetailComponent, FormsModule, UpperCasePipe, LowerCasePipe, ConvertToSpacesPipe, FilterProductPipe],
   templateUrl: './product-list.component.html', // template
   styleUrl: './product-list.component.scss' // template
 })
