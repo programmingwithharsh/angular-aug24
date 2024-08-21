@@ -1,13 +1,15 @@
 import { Component } from '@angular/core'; // importing a module
-import { NgIf, NgFor } from '@angular/common';
+import { NgIf, NgFor, UpperCasePipe, LowerCasePipe } from '@angular/common';
 import { IProduct } from '../iproduct';
 import { StarComponent } from "../star/star.component";
 import { ProductDetailComponent } from "../product-detail/product-detail.component";
+import { FormsModule } from '@angular/forms';
+import { ConvertToSpacesPipe } from '../convert-to-spaces.pipe';
 
 @Component({ // Decorator
   selector: 'app-product-list', // Component name
   standalone: true,
-  imports: [NgIf, NgFor, StarComponent, ProductDetailComponent],
+  imports: [NgIf, NgFor, StarComponent, ProductDetailComponent, FormsModule, UpperCasePipe, LowerCasePipe, ConvertToSpacesPipe],
   templateUrl: './product-list.component.html', // template
   styleUrl: './product-list.component.scss' // template
 })
@@ -65,4 +67,11 @@ export class ProductListComponent { // exporting component
       "imageUrl": "https://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png"
     }
   ]
+  showImage: boolean = false;
+  listFilter: string = "Cart";
+
+  toggleImage(): void {
+    debugger
+    this.showImage = !this.showImage;
+  }
 }
