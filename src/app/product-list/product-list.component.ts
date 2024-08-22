@@ -20,14 +20,21 @@ export class ProductListComponent implements OnInit { // exporting component
   products!: IProduct[];
   showImage: boolean = false;
   listFilter: string = "Cart";
+  errorMessage = "";
 
   constructor(private productServ: ProductService) {
-    console.log("Constructor - 1");
+   // console.log("Constructor - 1");
   }
 
   ngOnInit(): void {
-    console.log("ngOnInit - 2");
-    this.products = this.productServ.getProducts();
+    // console.log("ngOnInit - 2");
+    // console.log(this.productServ.getProducts());
+    this.productServ.getProducts().subscribe({
+      next: products => {
+        this.products = products
+      },
+      error: err => this.errorMessage = err
+    })
   }
 
   toggleImage(): void {

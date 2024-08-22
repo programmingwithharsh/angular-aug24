@@ -16,7 +16,6 @@ export class ProductDetailComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("This is Product detail component", this.productServ.getProducts());
   }
 
 }

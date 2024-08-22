@@ -13,8 +13,6 @@ export class StarComponent implements OnChanges {
   @Output() ratingClicked: EventEmitter<string> = new EventEmitter<string>(); // custom event
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("Star Component Rating", this.rating);
-    console.log("Star Component Price", this.price);
   }
 
   onClick() {
