@@ -7,11 +7,12 @@ import { FormsModule } from '@angular/forms';
 import { ConvertToSpacesPipe } from '../convert-to-spaces.pipe';
 import { FilterProductPipe } from '../filter-product.pipe';
 import { ProductService } from '../product.service';
+import { RouterLink } from '@angular/router';
 
 @Component({ // Decorator
   selector: 'app-product-list', // Component name
   standalone: true,
-  imports: [NgIf, NgFor, StarComponent, ProductDetailComponent, FormsModule, UpperCasePipe, LowerCasePipe, ConvertToSpacesPipe, FilterProductPipe],
+  imports: [NgIf, NgFor, StarComponent, ProductDetailComponent, FormsModule, UpperCasePipe, LowerCasePipe, ConvertToSpacesPipe, FilterProductPipe, RouterLink],
   templateUrl: './product-list.component.html', // template
   styleUrl: './product-list.component.scss' // template
 })

@@ -24,7 +24,7 @@
             <tr *ngFor="let product of products | filterProduct:listFilter">
                 <!-- <td><img width="50" height="50" src={{product.imageUrl}} /></td> -->
                 <td><img *ngIf="showImage" width="50" height="50" [src]="product.imageUrl" /></td>
-                <td>{{product.productName | uppercase }} <app-product-detail></app-product-detail></td>
+                <td><a [routerLink]="['/products', product.productId]">{{product.productName }}</a></td>
                 <td>{{product.productCode | convertToSpaces:'-'}}</td>
                 <td>{{product.releaseDate}}</td>
                 <td>{{product.description | lowercase}}</td>
