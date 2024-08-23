@@ -5,6 +5,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './about/about.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { CustomerComponent } from './customer/customer.component';
 
 export const routes: Routes = [
     { path: "", component: WelcomeComponent},
@@ -12,5 +13,6 @@ export const routes: Routes = [
     { path: "products", component: ProductListComponent},
     { path: "products/:id", component: ProductDetailComponent},
     { path: "users", component: UserListComponent},
+    { path: "customers", component: CustomerComponent},
     { path: "**", component: PageNotFoundComponent},
 ];
