@@ -8,7 +8,7 @@ import { Observable, throwError, catchError, tap, map } from 'rxjs';
 })
 export class UserService {
 
-  private userUrl = "http://localhost:3000/users/";
+  private userUrl = "http://localhost:4000/users/";
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<Iuser[]> {
