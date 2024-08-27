@@ -1,1 +1,14 @@
-<p>addproduct works!</p>
+<h1>Add Product Work!</h1>
+<button class="btn btn-primary" (click)="onBack()">Go to Products</button>
+<div class='col-md-6 col-lg-6 col-xl-6 col-xxl-6 mt-4'>
+    <form (submit)="onBack()">
+        Product Name <input class='form-control' placeholder='Enter Product Name' type="text" name="productName" />
+        Image Url <input class='form-control' placeholder='Enter Image Url' type="text" name="imageUrl" />
+        Product Code <input class='form-control' placeholder='Enter Product Code' type="text" name="productCode" />
+        Date <input class='form-control' placeholder='Enter Date' type="date" name="releaseDate" />
+        Description <input class='form-control' placeholder='Enter description' type="text" name="description" />
+        Price <input class='form-control' placeholder='Enter Price' type="text" name="price" />
+        Rating <input class='form-control' placeholder='Enter Rating' type="text" name="starRating" />
+        <button class='btn btn-primary mt-2'>Add Product</button>
+    </form>
+</div>

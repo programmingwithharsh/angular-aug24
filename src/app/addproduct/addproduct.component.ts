@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addproduct',
@@ -9,4 +10,11 @@ import { Component } from '@angular/core';
 })
 export class AddproductComponent {
 
+  constructor(private router: Router) {
+
+  }
+
+  onBack() {
+    this.router.navigate(["/products"]);
+  }
 }
