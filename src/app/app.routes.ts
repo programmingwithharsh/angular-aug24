@@ -6,13 +6,15 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AboutComponent } from './about/about.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { CustomerComponent } from './customer/customer.component';
+import { AddproductComponent } from './addproduct/addproduct.component';
 
 export const routes: Routes = [
-    { path: "", component: WelcomeComponent},
-    { path: "about", component: AboutComponent},
-    { path: "products", component: ProductListComponent},
-    { path: "products/:id", component: ProductDetailComponent},
-    { path: "users", component: UserListComponent},
-    { path: "customers", component: CustomerComponent},
-    { path: "**", component: PageNotFoundComponent},
+    { path: "", component: WelcomeComponent },
+    { path: "about", component: AboutComponent },
+    { path: "products", component: ProductListComponent },
+    { path: "addproduct", component: AddproductComponent },
+    { path: "products/:id", component: ProductDetailComponent },
+    { path: "users", component: UserListComponent },
+    { path: "customers", component: CustomerComponent },
+    { path: "**", component: PageNotFoundComponent },
 ];
