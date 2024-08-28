@@ -24,7 +24,7 @@ export class ProductListComponent implements OnInit { // exporting component
   errorMessage = "";
 
   constructor(private productServ: ProductService) {
-   // console.log("Constructor - 1");
+    // console.log("Constructor - 1");
   }
 
   ngOnInit(): void {
@@ -45,5 +45,25 @@ export class ProductListComponent implements OnInit { // exporting component
   onRatingClicked(message: string): void {
     debugger
     this.pageTitle = message;
+  }
+
+  saveProduct(): void {
+    let newProduct = {
+      "productId": 4,
+      "productName": "Saw",
+      "productCode": "TBX-0022",
+      "releaseDate": "May 15, 2016",
+      "description": "15-inch steel blade hand saw",
+      "price": 11.55,
+      "starRating": 3.7,
+      "imageUrl": "https://openclipart.org/image/300px/svg_to_png/27070/egore911_saw.png"
+    };
+    // replace newProduct with form value
+    this.productServ.createProduct(newProduct).subscribe({
+      next: products => {
+        console.log("done");
+      },
+      error: err => this.errorMessage = err
+    })
   }
 }

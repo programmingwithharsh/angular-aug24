@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from './iproduct';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError, catchError, tap, map } from 'rxjs';
 
 @Injectable({
@@ -8,11 +8,12 @@ import { Observable, throwError, catchError, tap, map } from 'rxjs';
 })
 export class ProductService {
 
-  private productUrl = 'assets/products.json';
+  private productUrl = 'http://localhost:5000';
   constructor(private http: HttpClient) { }
 
+  // GET METHOD
   getProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(this.productUrl)
+    return this.http.get<IProduct[]>(`${this.productUrl}/products`)
       .pipe(
         tap(data => console.log(data)),
         catchError(this.handleError)
@@ -23,6 +24,40 @@ export class ProductService {
     return this.getProducts().pipe(
       map((products) => products.find(p => p.productId === id))
     )
+  }
+
+  // POST METHOD
+  createProduct(product: IProduct): Observable<IProduct> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<IProduct>(`${this.productUrl}/product`, product, { headers })
+      .pipe(
+        tap(data => console.log('createProduct: ' + JSON.stringify(data))),
+        catchError(this.handleError)
+      );
+  }
+
+  // DELETE METHOD
+  deleteProduct(id: number): Observable<{}> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const url = `${this.productUrl}/${id}`;
+    return this.http.delete<IProduct>(url, { headers })
+      .pipe(
+        tap(data => console.log('deleteProduct: ' + id)),
+        catchError(this.handleError)
+      );
+  }
+
+  // UPDATE METHOD
+  updateProduct(product: IProduct): Observable<IProduct> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const url = `${this.productUrl}/${product.productId}`;
+    return this.http.put<IProduct>(url, product, { headers })
+      .pipe(
+        tap(() => console.log('updateProduct: ' + product.productId)),
+        // Return the product on an update
+        map(() => product),
+        catchError(this.handleError)
+      );
   }
 
   private handleError(error: HttpErrorResponse) {

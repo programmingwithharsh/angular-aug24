@@ -8,7 +8,7 @@ import { Observable, throwError, catchError, tap, map } from 'rxjs';
 })
 export class CustomerService {
 
-  private userUrl = "http://localhost:5000/customers/";
+  private userUrl = "http://localhost:5001/customers/";
   constructor(private http: HttpClient) { }
 
   getCustomers(): Observable<ICustomer[]> {
