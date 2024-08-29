@@ -8,11 +8,11 @@ import { ConvertToSpacesPipe } from '../convert-to-spaces.pipe';
 import { FilterProductPipe } from '../filter-product.pipe';
 import { ProductService } from '../product.service';
 import { RouterLink } from '@angular/router';
-
+import { NavComponent } from '../nav/nav.component';
 @Component({ // Decorator
   selector: 'app-product-list', // Component name
   standalone: true,
-  imports: [NgIf, NgFor, StarComponent, ProductDetailComponent, FormsModule, UpperCasePipe, LowerCasePipe, ConvertToSpacesPipe, FilterProductPipe, RouterLink],
+  imports: [NgIf, NgFor, StarComponent, ProductDetailComponent, FormsModule, UpperCasePipe, LowerCasePipe, ConvertToSpacesPipe, FilterProductPipe, RouterLink, NavComponent],
   templateUrl: './product-list.component.html', // template
   styleUrl: './product-list.component.scss' // template
 })

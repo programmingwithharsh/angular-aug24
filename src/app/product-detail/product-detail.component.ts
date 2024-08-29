@@ -4,11 +4,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { IProduct } from '../iproduct';
 import { StarComponent } from '../star/star.component';
 import { NgIf } from '@angular/common';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [StarComponent, NgIf],
+  imports: [StarComponent, NgIf, NavComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss'
 })

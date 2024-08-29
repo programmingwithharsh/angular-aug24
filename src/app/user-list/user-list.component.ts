@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Iuser } from '../iuser';
 import { NgIf, NgFor } from '@angular/common';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [NgIf, NgFor],
+  imports: [NgIf, NgFor, NavComponent],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss'
 })

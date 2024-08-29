@@ -7,6 +7,7 @@ import { AboutComponent } from './about/about.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { CustomerComponent } from './customer/customer.component';
 import { AddproductComponent } from './addproduct/addproduct.component';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 export const routes: Routes = [
     { path: "", component: WelcomeComponent },
@@ -14,6 +15,7 @@ export const routes: Routes = [
     { path: "products", component: ProductListComponent },
     { path: "addproduct", component: AddproductComponent },
     { path: "products/:id", component: ProductDetailComponent },
+    { path: "editproduct/:id", component: EditProductComponent },
     { path: "users", component: UserListComponent },
     { path: "customers", component: CustomerComponent },
     { path: "**", component: PageNotFoundComponent },

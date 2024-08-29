@@ -1,3 +1,4 @@
+<app-nav></app-nav>
 <h1>{{ pageTitle }}</h1> <!-- Angular Expression -->
 
 <div *ngIf="showImage;else other_content">
@@ -26,6 +27,7 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Rating</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -39,12 +41,35 @@
                 <td>{{product.price}}</td>
                 <td><app-star [rating]="product.starRating" [price]="product.price"
                         (ratingClicked)="onRatingClicked($event)"></app-star></td>
+                <td> <a [routerLink]="['/editproduct', product.productId]">Edit</a>&nbsp;&nbsp;|<button type="button" class="btn btn-link custom-link" data-bs-toggle="modal"
+                        data-bs-target="#deleteModal">
+                        Delete
+                    </button>
+                </td>
             </tr>
         </tbody>
     </table>
     <button class="btn btn-primary" (click)="saveProduct()">Add Product</button>
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteModalLabel">Confirm User Deletion</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">OK</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div *ngIf="errorMessage" class="alert alert-danger">
     Display some error: {{ errorMessage }}
 </div>
